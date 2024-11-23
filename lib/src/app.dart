@@ -18,19 +18,52 @@ class App extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 150),
-                Center(
-                  child: Text(
-                    'ZDRAVKO STANIN',
-                    style: GoogleFonts.roboto(
-                      fontSize: 52,
-                      fontWeight: FontWeight.w400,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipOval(
+                      child: Image.asset(
+                        'assets/images/profile-pic.png',
+                        width: 120,
+                        height: 120,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
+                    const SizedBox(width: 10,),
+                    Column(
+                      children: [
+                        Center(
+                          child: Text(
+                            'ZDRAVKO STANIN',
+                            style: GoogleFonts.roboto(
+                              fontSize: 52,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            'SOFTWARE ENGINEER',
+                            style: GoogleFonts.abel(
+                              fontSize: 30,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 10),
+                const PointerArrow(
+                  width: 10.0,
+                  height: 80.0,
+                  color: Colors.black,
+                ),
+                const SizedBox(height: 10),
                 Center(
                   child: Text(
-                    'SOFTWARE ENGINEER',
-                    style: GoogleFonts.abel(
+                    'EXPERIENCE',
+                    style: GoogleFonts.b612Mono(
                       fontSize: 30,
                     ),
                   ),
@@ -100,4 +133,49 @@ class TopNavBar extends StatelessWidget {
       ),
     );
   }
+}
+
+class PointerArrow extends StatelessWidget {
+  final double width;
+  final double height;
+  final Color color;
+
+  const PointerArrow({
+    super.key,
+    this.width = 20.0,
+    this.height = 10.0,
+    this.color = Colors.black,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: Size(width, height),
+      painter: _ArrowPainter(color: color),
+    );
+  }
+}
+
+class _ArrowPainter extends CustomPainter {
+  final Color color;
+
+  _ArrowPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    final path = Path();
+    path.moveTo(size.width / 2, size.height); // Bottom center
+    path.lineTo(size.width, 0); // Top right
+    path.lineTo(0, 0); // Top left
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
