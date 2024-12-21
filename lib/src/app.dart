@@ -52,25 +52,58 @@ class TestWidget2 extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 65),
-                const Row(
+                Row(
                   children: [
-                    Text(
+                    const Text(
                       'work',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: 20),
-                    Text(
+                    const SizedBox(width: 20),
+                    const Text(
                       'projects',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    const SizedBox(width: 320),
+                    Row(
+                      children: [
+                        Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/linkedin-logo.png',
+                          color: Colors.white,
+                        ),
+                        const SizedBox(width: 10),
+                        Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/github.png',
+                          color: Colors.white,
+                        ),
+                        const SizedBox(width: 10),
+                        Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/x_logo.png',
+                          color: Colors.white,
+                        ),
+                        const SizedBox(width: 10),
+                        Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/email.png',
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
                   ],
                 ),
+                const SizedBox(width: 10),
               ],
             ),
             // Center(
