@@ -1,6 +1,113 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class TestWidget2 extends StatelessWidget {
+  const TestWidget2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 230.0,
+              width: 210.0,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/me.jpg'),
+                  // fit: BoxFit.fill,
+                ),
+                borderRadius: BorderRadius.circular(40),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Zdravko Stanin',
+                  style: GoogleFonts.libreBaskerville(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Software Engineer & CS Student',
+                  style: GoogleFonts.libreBaskerville(
+                    fontSize: 25,
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'A software engineer with a passion for learning and building things.',
+                  style: GoogleFonts.libreBaskerville(
+                    fontSize: 15,
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(height: 65),
+                const Row(
+                  children: [
+                    Text(
+                      'work',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Text(
+                      'projects',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            // Center(
+            //   child: Card(
+            //     child: Padding(
+            //       padding: EdgeInsets.all(8.0),
+            //       child: Text('Hello World!'),
+            //     ),
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TestWidget extends StatelessWidget {
+  const TestWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Card(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Hello World!'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -29,7 +136,9 @@ class App extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Column(
                       children: [
                         Center(
