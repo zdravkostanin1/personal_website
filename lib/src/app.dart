@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class TestWidget2 extends StatelessWidget {
+class TestWidget2 extends StatefulWidget {
   const TestWidget2({super.key});
+
+  @override
+  State<TestWidget2> createState() => _TestWidget2State();
+}
+
+class _TestWidget2State extends State<TestWidget2> {
+
+  void _openUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +59,7 @@ class TestWidget2 extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'A software engineer with a passion for learning and building things.',
+                  'Software Engineer, Entrepreneur. Prev. Software Engineer @ Futurist Labs.',
                   style: GoogleFonts.libreBaskerville(
                     fontSize: 15,
                     color: Colors.grey,
@@ -72,25 +86,34 @@ class TestWidget2 extends StatelessWidget {
                     const SizedBox(width: 320),
                     Row(
                       children: [
-                        Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/linkedin-logo.png',
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () => _openUrl('https://www.linkedin.com/in/zdravko-stanin/'),
+                          child: Image.asset(
+                            width: 20,
+                            height: 20,
+                            'assets/images/linkedin-logo.png',
+                            color: Colors.white,
+                          ),
                         ),
                         const SizedBox(width: 10),
-                        Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/github.png',
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () => _openUrl('https://github.com/zdravkostanin1'),
+                          child: Image.asset(
+                            width: 20,
+                            height: 20,
+                            'assets/images/github.png',
+                            color: Colors.white,
+                          ),
                         ),
                         const SizedBox(width: 10),
-                        Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/x_logo.png',
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () => _openUrl('https://x.com/StaninZdravko'),
+                          child: Image.asset(
+                            width: 20,
+                            height: 20,
+                            'assets/images/x_logo.png',
+                            color: Colors.white,
+                          ),
                         ),
                         const SizedBox(width: 10),
                         Image.asset(
