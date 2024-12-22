@@ -116,11 +116,14 @@ class _TestWidget2State extends State<TestWidget2> {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/email.png',
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () => _openUrl('mailto:zdravko.stanin@gmail.com'),
+                          child: Image.asset(
+                            width: 20,
+                            height: 20,
+                            'assets/images/email.png',
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     )
