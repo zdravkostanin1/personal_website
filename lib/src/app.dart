@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:personal_website/src/pages/view/projects_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TestWidget2 extends StatefulWidget {
@@ -10,7 +11,6 @@ class TestWidget2 extends StatefulWidget {
 }
 
 class _TestWidget2State extends State<TestWidget2> {
-
   void _openUrl(String urlString) async {
     final Uri url = Uri.parse(urlString);
     if (!await launchUrl(url)) {
@@ -20,8 +20,7 @@ class _TestWidget2State extends State<TestWidget2> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +59,7 @@ class _TestWidget2State extends State<TestWidget2> {
                 const SizedBox(height: 10),
                 Text(
                   'Software Engineer, Entrepreneur. Prev. Software Engineer @ Futurist Labs.',
-                  style: GoogleFonts.libreBaskerville(
+                  style: TextStyle(
                     fontSize: 15,
                     color: Colors.grey,
                   ),
@@ -76,18 +75,22 @@ class _TestWidget2State extends State<TestWidget2> {
                       ),
                     ),
                     const SizedBox(width: 20),
-                    const Text(
-                      'projects',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, '/projects'),
+                      child: const Text(
+                        'projects',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 320),
+                    const SizedBox(width: 375),
                     Row(
                       children: [
                         GestureDetector(
-                          onTap: () => _openUrl('https://www.linkedin.com/in/zdravko-stanin/'),
+                          onTap: () => _openUrl(
+                              'https://www.linkedin.com/in/zdravko-stanin/'),
                           child: Image.asset(
                             width: 20,
                             height: 20,
@@ -97,7 +100,8 @@ class _TestWidget2State extends State<TestWidget2> {
                         ),
                         const SizedBox(width: 10),
                         GestureDetector(
-                          onTap: () => _openUrl('https://github.com/zdravkostanin1'),
+                          onTap: () =>
+                              _openUrl('https://github.com/zdravkostanin1'),
                           child: Image.asset(
                             width: 20,
                             height: 20,
@@ -117,7 +121,8 @@ class _TestWidget2State extends State<TestWidget2> {
                         ),
                         const SizedBox(width: 10),
                         GestureDetector(
-                          onTap: () => _openUrl('mailto:zdravko.stanin@gmail.com'),
+                          onTap: () =>
+                              _openUrl('mailto:zdravko.stanin@gmail.com'),
                           child: Image.asset(
                             width: 20,
                             height: 20,
@@ -132,17 +137,8 @@ class _TestWidget2State extends State<TestWidget2> {
                 const SizedBox(width: 10),
               ],
             ),
-            // Center(
-            //   child: Card(
-            //     child: Padding(
-            //       padding: EdgeInsets.all(8.0),
-            //       child: Text('Hello World!'),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
-      ),
     );
   }
 }
