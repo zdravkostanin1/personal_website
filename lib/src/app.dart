@@ -11,6 +11,9 @@ class TestWidget2 extends StatefulWidget {
 }
 
 class _TestWidget2State extends State<TestWidget2> {
+  bool _areProjectsHovered = false;
+  bool _isWorkHovered = false;
+
   void _openUrl(String urlString) async {
     final Uri url = Uri.parse(urlString);
     if (!await launchUrl(url)) {
@@ -21,124 +24,171 @@ class _TestWidget2State extends State<TestWidget2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 230.0,
-              width: 210.0,
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/me.jpg'),
-                  // fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(40),
+      backgroundColor: Colors.black,
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 230.0,
+            width: 210.0,
+            decoration: BoxDecoration(
+              image: const DecorationImage(
+                image: AssetImage('assets/images/me.jpg'),
+                // fit: BoxFit.fill,
               ),
+              borderRadius: BorderRadius.circular(40),
             ),
-            const SizedBox(width: 10),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Zdravko Stanin',
-                  style: GoogleFonts.libreBaskerville(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+          ),
+          const SizedBox(width: 10),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Zdravko Stanin',
+                style: GoogleFonts.libreBaskerville(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                Text(
-                  'Software Engineer & CS Student',
-                  style: GoogleFonts.libreBaskerville(
-                    fontSize: 25,
-                    color: Colors.grey,
-                  ),
+              ),
+              Text(
+                'Software Engineer & CS Student',
+                style: GoogleFonts.libreBaskerville(
+                  fontSize: 25,
+                  color: Colors.grey,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'Software Engineer, Entrepreneur. Prev. Software Engineer @ Futurist Labs.',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.grey,
-                  ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Software Engineer, Entrepreneur. Prev. Software Engineer @ Futurist Labs.',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.grey,
                 ),
-                const SizedBox(height: 65),
-                Row(
-                  children: [
-                    const Text(
-                      'work',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, '/projects'),
-                      child: const Text(
-                        'projects',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 375),
-                    Row(
+              ),
+              const SizedBox(height: 65),
+              Row(
+                children: [
+                  MouseRegion(
+                    onEnter: (_) => setState(() => _isWorkHovered = true),
+                    onExit: (_) => setState(() => _isWorkHovered = false),
+                    child: Stack(
+                      alignment: Alignment.center,
                       children: [
-                        GestureDetector(
-                          onTap: () => _openUrl(
-                              'https://www.linkedin.com/in/zdravko-stanin/'),
-                          child: Image.asset(
-                            width: 20,
-                            height: 20,
-                            'assets/images/linkedin-logo.png',
-                            color: Colors.white,
+                        SizedBox(
+                          width: 70,
+                          height: 40,
+                          child: AnimatedOpacity(
+                            duration: const Duration(milliseconds: 200),
+                            opacity: _isWorkHovered ? 1.0 : 0.0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        GestureDetector(
-                          onTap: () =>
-                              _openUrl('https://github.com/zdravkostanin1'),
-                          child: Image.asset(
-                            width: 20,
-                            height: 20,
-                            'assets/images/github.png',
+                        const Text(
+                          'work',
+                          style: TextStyle(
                             color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        GestureDetector(
-                          onTap: () => _openUrl('https://x.com/StaninZdravko'),
-                          child: Image.asset(
-                            width: 20,
-                            height: 20,
-                            'assets/images/x_logo.png',
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        GestureDetector(
-                          onTap: () =>
-                              _openUrl('mailto:zdravko.stanin@gmail.com'),
-                          child: Image.asset(
-                            width: 20,
-                            height: 20,
-                            'assets/images/email.png',
-                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
-                    )
-                  ],
-                ),
-                const SizedBox(width: 10),
-              ],
-            ),
-          ],
-        ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  MouseRegion(
+                    onEnter: (_) => setState(() => _areProjectsHovered = true),
+                    onExit: (_) => setState(() => _areProjectsHovered = false),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        SizedBox(
+                          width: 70,
+                          height: 40,
+                          child: AnimatedOpacity(
+                            duration: const Duration(milliseconds: 200),
+                            opacity: _areProjectsHovered ? 1.0 : 0.0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/projects'),
+                          child: const Text(
+                            'projects',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 375),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => _openUrl(
+                            'https://www.linkedin.com/in/zdravko-stanin/'),
+                        child: Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/linkedin-logo.png',
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () =>
+                            _openUrl('https://github.com/zdravkostanin1'),
+                        child: Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/github.png',
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () => _openUrl('https://x.com/StaninZdravko'),
+                        child: Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/x_logo.png',
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () =>
+                            _openUrl('mailto:zdravko.stanin@gmail.com'),
+                        child: Image.asset(
+                          width: 20,
+                          height: 20,
+                          'assets/images/email.png',
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
