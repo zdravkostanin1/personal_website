@@ -3,6 +3,37 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:personal_website/src/pages/view/projects_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+class CardView extends StatefulWidget {
+  const CardView({super.key});
+
+  @override
+  State<CardView> createState() => _CardViewState();
+}
+
+class _CardViewState extends State<CardView> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child: Image.asset(
+              'assets/images/me.jpg',
+              width: 370,
+              height: 480,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class TestWidget2 extends StatefulWidget {
   const TestWidget2({super.key});
 
@@ -148,7 +179,7 @@ class _TestWidget2State extends State<TestWidget2> {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: 20),
                       GestureDetector(
                         onTap: () =>
                             _openUrl('https://github.com/zdravkostanin1'),
@@ -159,7 +190,7 @@ class _TestWidget2State extends State<TestWidget2> {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: 20),
                       GestureDetector(
                         onTap: () => _openUrl('https://x.com/StaninZdravko'),
                         child: Image.asset(
@@ -169,7 +200,7 @@ class _TestWidget2State extends State<TestWidget2> {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width: 20),
                       GestureDetector(
                         onTap: () =>
                             _openUrl('mailto:zdravko.stanin@gmail.com'),

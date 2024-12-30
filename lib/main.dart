@@ -7,7 +7,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const TestWidget2(),
+        '/': (context) => const CardView(),
         '/projects': (context) => const ProjectsPage(),
       },
     ),
