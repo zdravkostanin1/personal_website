@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_website/src/pages/view/projects_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CardView extends StatefulWidget {
@@ -15,19 +14,48 @@ class _CardViewState extends State<CardView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15.0),
-            child: Image.asset(
-              'assets/images/me.jpg',
-              width: 370,
-              height: 480,
-              fit: BoxFit.cover,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Image.asset(
+                  'assets/images/me.jpg',
+                  width: 370,
+                  height: 480,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              top: 16,
+              left: 16,
+              child: GestureDetector(
+                // TODO: Implement
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.grid_view_rounded,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
