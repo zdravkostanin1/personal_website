@@ -40,18 +40,42 @@ class _CardViewState extends State<CardView> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
-                    width: 40,
-                    height: 40,
+                    width: 50,
+                    height: 50,
                     decoration: const BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.white,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
                       Icons.grid_view_rounded,
-                      color: Colors.white,
+                      color: Colors.black,
                       size: 24,
                     ),
                   ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 70,
+              left: 25,
+              // right: 100,
+              child: Text(
+                'Zdravko Stanin',
+                style: GoogleFonts.libreBaskerville(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 40,
+              left: 25,
+              child: Text(
+                'Software Engineer & CS Student',
+                style: GoogleFonts.libreBaskerville(
+                  fontSize: 16,
+                  color: Colors.grey,
                 ),
               ),
             ),
