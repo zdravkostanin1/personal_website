@@ -10,6 +10,13 @@ class CardView extends StatefulWidget {
 }
 
 class _CardViewState extends State<CardView> {
+  void _openUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +66,7 @@ class _CardViewState extends State<CardView> {
               top: 16,
               left: 300,
               child: GestureDetector(
-                // TODO: Implement
-                onTap: () {},
+                onTap: () => _openUrl('https://github.com/zdravkostanin1'),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
@@ -86,7 +92,8 @@ class _CardViewState extends State<CardView> {
               left: 302,
               child: GestureDetector(
                 // TODO: Implement
-                onTap: () {},
+                onTap: () =>
+                    _openUrl('https://www.linkedin.com/in/zdravko-stanin/'),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
@@ -108,11 +115,36 @@ class _CardViewState extends State<CardView> {
               ),
             ),
             Positioned(
+              top: 150,
+              left: 302,
+              child: GestureDetector(
+                onTap: () => _openUrl('https://x.com/StaninZdravko'),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 27,
+                    height: 25,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/x_logo.png',
+                        color: Colors.white,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
               top: 105,
               left: 302,
               child: GestureDetector(
                 // TODO: Implement
-                onTap: () {},
+                onTap: () => _openUrl('mailto:zdravko.stanin@gmail.com'),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
