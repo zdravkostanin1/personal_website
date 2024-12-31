@@ -40,8 +40,8 @@ class _CardViewState extends State<CardView> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
-                    width: 50,
-                    height: 50,
+                    width: 45,
+                    height: 45,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
@@ -50,6 +50,84 @@ class _CardViewState extends State<CardView> {
                       Icons.grid_view_rounded,
                       color: Colors.black,
                       size: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 16,
+              left: 300,
+              child: GestureDetector(
+                // TODO: Implement
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/github.png',
+                        color: Colors.white,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 60,
+              left: 302,
+              child: GestureDetector(
+                // TODO: Implement
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 27,
+                    height: 27,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/linkedin-logo.png',
+                        color: Colors.white,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 105,
+              left: 302,
+              child: GestureDetector(
+                // TODO: Implement
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 27,
+                    height: 27,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/email.png',
+                        color: Colors.white,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),
