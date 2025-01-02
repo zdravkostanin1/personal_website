@@ -20,6 +20,7 @@ class _CardViewState extends State<CardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Stack(
           alignment: Alignment.center,
@@ -60,12 +61,15 @@ class _CardViewState extends State<CardView> {
                   },
                   itemBuilder: (context) => [
                     const PopupMenuItem(
+                      value: 'home',
                       child: Text('home'),
                     ),
                     const PopupMenuItem(
+                      value: 'projects',
                       child: Text('projects'),
                     ),
                     const PopupMenuItem(
+                      value: 'work',
                       child: Text('work'),
                     ),
                   ],
