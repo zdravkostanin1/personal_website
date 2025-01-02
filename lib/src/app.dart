@@ -44,19 +44,45 @@ class _CardViewState extends State<CardView> {
               child: GestureDetector(
                 // TODO: Implement
                 onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
+                child: PopupMenuButton(
+                  onSelected: (value) {
+                    switch (value) {
+                      case 'home':
+                        Navigator.pushNamed(context, '/');
+                        break;
+                      case 'projects':
+                        Navigator.pushNamed(context, '/projects');
+                        break;
+                      case 'work':
+                        // TODO: Implement pushNamed to work page
+                        break;
+                    }
+                  },
+                  itemBuilder: (context) => [
+                    const PopupMenuItem(
+                      child: Text('home'),
                     ),
-                    child: const Icon(
-                      Icons.grid_view_rounded,
-                      color: Colors.black,
-                      size: 24,
+                    const PopupMenuItem(
+                      child: Text('projects'),
+                    ),
+                    const PopupMenuItem(
+                      child: Text('work'),
+                    ),
+                  ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+                      width: 45,
+                      height: 45,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.grid_view_rounded,
+                        color: Colors.black,
+                        size: 24,
+                      ),
                     ),
                   ),
                 ),
