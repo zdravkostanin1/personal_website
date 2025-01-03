@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:personal_website/src/models/scale_size.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WebView extends StatefulWidget {
@@ -46,25 +47,31 @@ class _WebViewState extends State<WebView> {
               Text(
                 'Zdravko Stanin',
                 style: GoogleFonts.libreBaskerville(
-                  fontSize: 50,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
+                textScaler:
+                    TextScaler.linear(ScaleSize.textScaleFactor(context)),
               ),
               Text(
                 'Software Engineer & CS Student',
                 style: GoogleFonts.libreBaskerville(
-                  fontSize: 25,
+                  fontSize: 12,
                   color: Colors.grey,
                 ),
+                textScaler:
+                    TextScaler.linear(ScaleSize.textScaleFactor(context)),
               ),
               const SizedBox(height: 10),
-              const Text(
+              Text(
                 'Software Engineer, Entrepreneur. Prev. Software Engineer @ Futurist Labs.',
-                style: TextStyle(
-                  fontSize: 15,
+                style: const TextStyle(
+                  fontSize: 10,
                   color: Colors.grey,
                 ),
+                textScaler:
+                    TextScaler.linear(ScaleSize.textScaleFactor(context)),
               ),
               const SizedBox(height: 65),
               Row(
