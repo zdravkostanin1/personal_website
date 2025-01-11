@@ -100,7 +100,6 @@ class ProjectsEntry extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(image),
-              fit: BoxFit.cover,
             ),
             color: Colors.white,
             borderRadius: BorderRadius.circular(5),
