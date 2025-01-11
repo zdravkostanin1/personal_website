@@ -132,7 +132,7 @@ class _WebViewState extends State<WebView> {
                           alignment: Alignment.center,
                           children: [
                             SizedBox(
-                              width: 60,
+                              width: 50,
                               height: 40,
                               child: AnimatedOpacity(
                                 duration: const Duration(milliseconds: 200),
