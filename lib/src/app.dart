@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_website/src/pages/card_view/view/card_view.dart';
 import 'package:personal_website/src/pages/projects_page/view/projects_page.dart';
 import 'package:personal_website/src/pages/web_view/view/web_view.dart';
+import 'package:personal_website/src/pages/work_page/view/work_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
               },
             ),
         '/projects': (context) => const ProjectsPage(),
+        '/work': (context) => const WorkPage(),
       },
     );
   }

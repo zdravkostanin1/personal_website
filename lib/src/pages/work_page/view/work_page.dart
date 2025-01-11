@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({super.key});
+class WorkPage extends StatelessWidget {
+  const WorkPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +16,14 @@ class ProjectsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'zs / ... / projects',
+                  'zs / ... / work',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'projects',
+                  'work',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -34,33 +34,24 @@ class ProjectsPage extends StatelessWidget {
                 Expanded(
                   child: ListView(
                     children: const [
-                      ProjectsEntry(
-                        image: 'assets/images/lifebloom.png',
-                        title: 'LifeBloom',
-                        description:
-                            'Mobile app that helps women to track their mental health & physical health during and after pregnancy.',
+                      WorkEntry(
+                        image: 'assets/images/upwork.jpg',
+                        title: 'Software Engineer',
+                        description: 'Upwork',
                       ),
                       SizedBox(height: 20),
-                      ProjectsEntry(
-                        image: 'assets/images/furnishify.png',
-                        title: 'Furnishify',
-                        description:
-                            'Mobile app that uses AR (Augmented Reality) to help users visualize furniture in their homes.',
+                      WorkEntry(
+                        image: 'assets/images/futurist.png',
+                        title: 'Software Engineer',
+                        description: 'Futurist Labs',
                       ),
                       SizedBox(height: 20),
-                      ProjectsEntry(
-                        image: 'assets/images/improvio.png',
-                        title: 'Improvio',
-                        description:
-                            'A one of a kind self-improvement platform to help people track their goals by using science-backed methods.',
+                      WorkEntry(
+                        image: 'assets/images/ja_bulgaria.png',
+                        title: 'Manager',
+                        description: 'JA Bulgaria - Event',
                       ),
                       SizedBox(height: 20),
-                      ProjectsEntry(
-                        image: 'assets/images/scholarly.png',
-                        title: 'Scholarly',
-                        description:
-                            'A platform to help students track their classes, grades, and assignments. It also provides a way for teachers to manage their classes and students.',
-                      ),
                     ],
                   ),
                 ),
@@ -73,12 +64,12 @@ class ProjectsPage extends StatelessWidget {
   }
 }
 
-class ProjectsEntry extends StatelessWidget {
+class WorkEntry extends StatelessWidget {
   final String title;
   final String description;
   final String image;
 
-  const ProjectsEntry({
+  const WorkEntry({
     super.key,
     required this.title,
     required this.description,

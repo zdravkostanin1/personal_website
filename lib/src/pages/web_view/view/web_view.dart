@@ -145,11 +145,15 @@ class _WebViewState extends State<WebView> {
                                 ),
                               ),
                             ),
-                            const Text(
-                              'work',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                            GestureDetector(
+                              onTap: () =>
+                                  Navigator.pushNamed(context, '/work'),
+                              child: const Text(
+                                'work',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
