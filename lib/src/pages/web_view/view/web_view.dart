@@ -34,7 +34,6 @@ class _WebViewState extends State<WebView> {
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: AssetImage('assets/images/me.jpg'),
-                // fit: BoxFit.fill,
               ),
               borderRadius: BorderRadius.circular(40),
             ),
@@ -73,124 +72,129 @@ class _WebViewState extends State<WebView> {
                 textScaler:
                     TextScaler.linear(ScaleSize.textScaleFactor(context)),
               ),
-              const SizedBox(height: 65),
+              const SizedBox(height: 20),
               Row(
                 children: [
-                  MouseRegion(
-                    onEnter: (_) => setState(() => _isWorkHovered = true),
-                    onExit: (_) => setState(() => _isWorkHovered = false),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        SizedBox(
-                          width: 70,
-                          height: 40,
-                          child: AnimatedOpacity(
-                            duration: const Duration(milliseconds: 200),
-                            opacity: _isWorkHovered ? 1.0 : 0.0,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Text(
-                          'work',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () =>
+                        _openUrl('https://www.linkedin.com/in/zdravko-stanin/'),
+                    child: Image.asset(
+                      width: 20,
+                      height: 20,
+                      'assets/images/linkedin-logo.png',
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  MouseRegion(
-                    onEnter: (_) => setState(() => _areProjectsHovered = true),
-                    onExit: (_) => setState(() => _areProjectsHovered = false),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        SizedBox(
-                          width: 70,
-                          height: 40,
-                          child: AnimatedOpacity(
-                            duration: const Duration(milliseconds: 200),
-                            opacity: _areProjectsHovered ? 1.0 : 0.0,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () =>
-                              Navigator.pushNamed(context, '/projects'),
-                          child: const Text(
-                            'projects',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
+                  const SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () => _openUrl('https://github.com/zdravkostanin1'),
+                    child: Image.asset(
+                      width: 20,
+                      height: 20,
+                      'assets/images/github.png',
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(width: 375),
+                  const SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () => _openUrl('https://x.com/StaninZdravko'),
+                    child: Image.asset(
+                      width: 20,
+                      height: 20,
+                      'assets/images/x_logo.png',
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () => _openUrl('mailto:zdravko.stanin@gmail.com'),
+                    child: Image.asset(
+                      width: 20,
+                      height: 20,
+                      'assets/images/email.png',
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  // Using a Container to create a vertical line.
+                  Container(
+                    width: 2,
+                    height: 30,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(width: 5),
                   Row(
                     children: [
-                      GestureDetector(
-                        onTap: () => _openUrl(
-                            'https://www.linkedin.com/in/zdravko-stanin/'),
-                        child: Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/linkedin-logo.png',
-                          color: Colors.white,
+                      MouseRegion(
+                        onEnter: (_) => setState(() => _isWorkHovered = true),
+                        onExit: (_) => setState(() => _isWorkHovered = false),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              width: 60,
+                              height: 40,
+                              child: AnimatedOpacity(
+                                duration: const Duration(milliseconds: 200),
+                                opacity: _isWorkHovered ? 1.0 : 0.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Text(
+                              'work',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(width: 20),
-                      GestureDetector(
-                        onTap: () =>
-                            _openUrl('https://github.com/zdravkostanin1'),
-                        child: Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/github.png',
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      GestureDetector(
-                        onTap: () => _openUrl('https://x.com/StaninZdravko'),
-                        child: Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/x_logo.png',
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      GestureDetector(
-                        onTap: () =>
-                            _openUrl('mailto:zdravko.stanin@gmail.com'),
-                        child: Image.asset(
-                          width: 20,
-                          height: 20,
-                          'assets/images/email.png',
-                          color: Colors.white,
+                      MouseRegion(
+                        onEnter: (_) =>
+                            setState(() => _areProjectsHovered = true),
+                        onExit: (_) =>
+                            setState(() => _areProjectsHovered = false),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              width: 60,
+                              height: 40,
+                              child: AnimatedOpacity(
+                                duration: const Duration(milliseconds: 200),
+                                opacity: _areProjectsHovered ? 1.0 : 0.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () =>
+                                  Navigator.pushNamed(context, '/projects'),
+                              child: const Text(
+                                'projects',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
-              const SizedBox(width: 10),
             ],
           ),
         ],
