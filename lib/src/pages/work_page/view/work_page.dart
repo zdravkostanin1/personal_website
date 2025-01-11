@@ -47,6 +47,12 @@ class WorkPage extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       WorkEntry(
+                        image: 'assets/images/improvio.png',
+                        title: 'Startup Founder',
+                        description: 'Improvio',
+                      ),
+                      SizedBox(height: 20),
+                      WorkEntry(
                         image: 'assets/images/ja_bulgaria.png',
                         title: 'Manager',
                         description: 'JA Bulgaria - Event',
